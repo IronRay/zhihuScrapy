@@ -1,6 +1,4 @@
 # 针对知乎的爬虫练习项目
-
-***
 [![Python](https://img.shields.io/badge/Python-3.x-32C83D.svg)]()
 
 ## 项目概要
