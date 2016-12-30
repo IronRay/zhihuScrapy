@@ -28,7 +28,17 @@ def getUrlData(url, params=None):
     # print('< UA: %s >' % headers['User-Agent'])
 
     # cookie
-    cookies = 'Your Cookies'
+    cookies = {"z_c0":
+               '"Mi4wQUlCQ0FLdk1BQXNBZ01JRGMtNENDeGNBQUFCaEFsVk4zbVI4V0FDT1IwRWRqeXdlUFlvZ0pQMHJTQ2tCWTR0VVRB|1481962390|99f60599dd79d0cfa00678cebda3ee46306edb80"',
+               "login":
+               '"M2JlOTIxYTAxYzU1NDVjZTk5NjE0OWY5MDk1OTY4MDk=|1481955294|bc6b6c0e109a37bb827e3fb102d29a3be25ab1d2"',
+               "n_c": "1",
+               "q_c1": "873d8955799e43fe8b05f12979932618|1481955286000|1481955286000",
+               "l_cap_id":
+               '"MDc1OTkwYmRhYWMwNGMxOTg5Y2VjNWQ0MzM3ZTBiOWU=|1481955286|2183926147ed2c953092e67f9b21d8f41c1bbdf2"',
+               "d_c0": '"AIDCA3PuAguPTvx05ZARA8WZa8zumYR7ezY=|1481955286"',
+               "cap_id":
+               '"ZTMzNDc2ZDI1ODdlNDc2YmI2ZjM0OWZjNDg3Njc2OGU=|1481955286|908bd75b06b5810f47ccf2bea82a6c82851308b0"'}
 
     response = requests.get(url, headers=headers, cookies=cookies, params=params, timeout=30)
 
@@ -45,7 +55,7 @@ def getApiData(urlToken, offset='0', limit='10'):
 
     headers = HEADER
 
-    headers['authorization'] = 'Your authorization'
+    headers['authorization'] = 'Bearer Mi4wQUlCQ0FLdk1BQXNBWUlMMFZPSUZDeGNBQUFCaEFsVk41V3BfV0FCQmt6ZlNlTHBjNldYaGNhQlB6cGEyMGZDcTBR|1482164686|99f4a8f22c50f3e5162680664d343b378759abfd'
 
     baseApiUrl = 'https://www.zhihu.com/api'
     version = 'v4'

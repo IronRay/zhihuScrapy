@@ -5,8 +5,8 @@ import json
 import zhihuGet
 
 
-class UserData():
-    """docstring for userData"""
+class User():
+    """docstring for user"""
 
     def __init__(self, urlToken):
         # Waiting for handler
@@ -45,7 +45,7 @@ class UserData():
         self.pageData = self.getPageData()
         self.pageContent = self.getPageContent()
         self.userInfo = {}
-        self.userFollowing = []
+        self.userFollowings = []
 
     def urlGenerator(self):
         baseUrl = 'https://www.zhihu.com'
@@ -151,8 +151,8 @@ class UserData():
 
         return userInfo
 
-    def getUserFollowingList(self, limits=10):
-        userFollowingList = []
+    def getUserFollowings(self, limits=10):
+        userFollowings = []
 
         maxOffset = int(self.userInfo['followingCount'])
 
@@ -171,11 +171,11 @@ class UserData():
                 continue
 
             for userData in responseDict['data']:
-                userFollowingList.append(userData['url_token'])
+                userFollowings.append(userData['url_token'])
 
-        self.userFollowing = userFollowingList
+        self.userFollowing = userFollowings
 
-        return userFollowingList
+        return userFollowings
 
     def outputUserInfo(self):
         for key in self.infoList:
@@ -184,15 +184,5 @@ class UserData():
 
 if __name__ == '__main__':
     # My class test case
-
-    user = UserData(urlToken='urlToken')
-
-    if user.pageData.status_code == 404:
-        break
-    else:
-        user.getUserInfo()
-        print('------')
-        user.outputUserInfo()
-        print('------')
-
-    # user.getUserFollowingList()
+    user = User(urlToken='mmymmy')
+    user.getUserInfo()

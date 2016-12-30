@@ -1,0 +1,20 @@
+# python direction
+__pycache__
+
+# SQLite databases
+*.sqlite
+
+# Configration
+config.py
+
+dataModel.txt
+dataMode.py
+
+exercise.py
+test.py
+test.sql
+login.py
+client.py
+server.py
+test2.py
+
