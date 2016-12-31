@@ -42,8 +42,7 @@ class User():
 
         self.urlToken = urlToken
         self.url = self.urlGenerator()
-        self.pageData = self.getPageData()
-        self.pageContent = self.getPageContent()
+        self.pageContent = ''
         self.userInfo = {}
         self.userFollowings = []
 
@@ -127,13 +126,12 @@ class User():
 
         return userInfo
 
-    def getPageData(self):
-        pageData = zhihuGet.getUrlData(self.url)
-
-        return pageData
-
     def getPageContent(self):
-        pageContent = BeautifulSoup(self.pageData.text, 'lxml')
+        pageData = zhihuGet.getUrlData(self.url)
+        pageContent = BeautifulSoup(pageData.text, 'lxml')
+
+        self.pageContent = pageContent
+
         return pageContent
 
     def getUserInfo(self):
