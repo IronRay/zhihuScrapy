@@ -3,7 +3,7 @@ from multiprocessing import Pool
 import os
 
 import zhihuScrapy
-import dataSaver
+import dataGenerator
 
 
 def worker(urlToken, num):
@@ -14,12 +14,12 @@ def worker(urlToken, num):
     userFollowings = user.getUserFollowings()
     # user.outputUserInfo()
 
-    dataSaver.updateUserTokenStatus(urlToken=urlToken, status='1')
-    dataSaver.insertUserInfo(userInfo=userInfo)
+    dataGenerator.updateUserTokenStatus(urlToken=urlToken, status='1')
+    dataGenerator.insertUserInfo(userInfo=userInfo)
 
     for token in userFollowings:
-        dataSaver.insertUrlTokenRelation(urlToken=token, followerUrlToken=urlToken)
-        dataSaver.insertUrlToken(urlToken=token, status=0)
+        dataGenerator.insertUrlTokenRelation(urlToken=token, followerUrlToken=urlToken)
+        dataGenerator.insertUrlToken(urlToken=token, status=0)
 
     print('< TaskNum: %s >< PID: %s >< Token: %s >< Finish! >' % (num, os.getpid(), urlToken))
 
@@ -47,5 +47,5 @@ if __name__ == '__main__':
 
             urlTokenDicts = []
         else:
-            urlTokenDicts = dataSaver.getUrlToken(numOfUrlToken=10, status=0)
+            urlTokenDicts = dataGenerator.getUrlToken(numOfUrlToken=10, status=0)
             # print('<Dicts: %s >' % urlTokenDicts)

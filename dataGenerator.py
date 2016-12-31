@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*-
-
 import pymysql
-# import getpass
 import json
+
+from config import MYSQLConfig
 
 
 def connect():
-
-    # host = input('Host:')
-    # user = input('User:')
-    # password = getpass.getpass('Password:')
-    # db = input('DB:')
-
-    host = 'localhost'
-    user = 'ray'
-    password = 'codeForRay123'
-    db = 'ZHIHU_SCRAPING'
+    host = MYSQLConfig['host']
+    user = MYSQLConfig['user']
+    password = MYSQLConfig['password']
+    db = MYSQLConfig['db']
 
     connection = pymysql.connect(host=host,
                                  user=user,
