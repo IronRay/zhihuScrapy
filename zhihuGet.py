@@ -8,7 +8,7 @@ from config import ZHIHUGetConfig
 USER_AGENTS = ZHIHUGetConfig['USER_AGENTS']
 
 
-def getUrlData(url, params=None):
+def getUrlData(url, params=None, useCookie=True):
     HEADER = {
         'User-Agent': random.choice(USER_AGENTS),
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -22,7 +22,10 @@ def getUrlData(url, params=None):
     # print('< UA: %s >' % headers['User-Agent'])
 
     # cookie
-    cookies = ZHIHUGetConfig['cookies']
+    if useCookie:
+        cookies = ZHIHUGetConfig['cookies']
+    else:
+        cookies = ''
 
     response = requests.get(url, headers=headers, cookies=cookies, params=params, timeout=30)
 

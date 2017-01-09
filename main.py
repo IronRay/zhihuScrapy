@@ -2,14 +2,14 @@
 from multiprocessing import Pool
 import os
 
-import zhihuScrapy
+import baseClass
 import dataGenerator
 
 
 def worker(urlToken, num):
     print('< TaskNum: %s >< PID: %s >< Token: %s >< Start! >' % (num, os.getpid(), urlToken))
 
-    user = zhihuScrapy.User(urlToken)
+    user = baseClass.User(urlToken)
     userInfo = user.getUserInfo()
     userFollowings = user.getUserFollowings()
     # user.outputUserInfo()
